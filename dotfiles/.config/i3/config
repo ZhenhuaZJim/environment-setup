@@ -36,7 +36,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DP-0 --output DP-0 --rotate left
+exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DP-0 --output DP-0 --pos 1200x500 --rotate left
 
 exec_always --no-startup-id feh --no-xinerama --bg-fill --geometry 4961x2222+500+0 --xinerama-index 0 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg --bg-fill --geometry 4961x2222+1000+0 --xinerama-index 1 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg
 
