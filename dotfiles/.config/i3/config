@@ -41,13 +41,12 @@ exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DP-0 --outpu
 exec_always --no-startup-id feh --no-xinerama --bg-fill --geometry 4961x2222+500+0 --xinerama-index 0 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg --bg-fill --geometry 4961x2222+1000+0 --xinerama-index 1 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.focused          #333333 #222222 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #222222 #888888 #484e50   #5f676a
+#client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #545252
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
