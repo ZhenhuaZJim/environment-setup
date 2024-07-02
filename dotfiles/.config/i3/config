@@ -175,6 +175,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+n exec i3-input -F 'title_format "%s"' -P 'New name: '
 
+bindsym $mod+Shift+p exec maim --format png --select > ~/screenshots/screenshot.png && xclip -selection clip -t image/png ~/screenshots/screenshot.png
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
