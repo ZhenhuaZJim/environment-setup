@@ -113,6 +113,8 @@ export PATH=$PATH:/usr/local/cuda-10.3/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.3/lib64
 export PATH=$PATH:/usr/local/cuda-11.3/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.3/lib64
+export PATH=$PATH:/usr/local/cuda-11.1/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.1/lib64
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 alias vim="nvim"
@@ -136,3 +138,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source ~/credentials
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jim/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jim/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jim/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jim/google-cloud-sdk/completion.zsh.inc'; fi

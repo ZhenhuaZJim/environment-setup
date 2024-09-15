@@ -25,7 +25,13 @@ exec --no-startup-id dex --autostart --environment i3
 
 exec --no-startup-id xclip
 
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DP-0 --output DP-0 --pos 1200x0 --rotate left
+# exec_always xrandr --output HDMI-0 --left-of DP-0 --output DP-0 --rotate left
+#
+exec_always --no-startup-id sleep 1 && picom --config ~/.config/picom/picom.conf
+
+exec_always --no-startup-id feh --no-xinerama --bg-fill --geometry 4961x2222+500+0 --xinerama-index 0 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg --bg-fill --geometry 4961x2222+1000+0 --xinerama-index 1 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg
+
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -38,13 +44,15 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DP-0 --output DP-0 --pos 1200x500 --rotate left
-
-exec_always --no-startup-id feh --no-xinerama --bg-fill --geometry 4961x2222+500+0 --xinerama-index 0 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg --bg-fill --geometry 4961x2222+1000+0 --xinerama-index 1 ~/wallpapers/unixporn_wallpapers/jkldfgfdjlk-FE786.jpg
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #333333 #222222 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #222222 #ffffff #484e50   #5f676a
+# client.focused          #333333 #222222 #ffffff #2e9ef4   #285577
+# client.focused_inactive #333333 #222222 #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          #333333 #3c3836 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #32302f #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
@@ -130,10 +138,10 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminal"
-set $ws2 "2: Chromes"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws2 "2: Work"
+set $ws3 "3: Non-Work"
+set $ws4 "4: Personal Proj"
+set $ws5 "5: Extra"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -175,9 +183,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+n exec i3-input -F 'title_format "%s"' -P 'New name: '
 
-bindsym $mod+Shift+p exec maim --format png --select > ~/screenshots/screenshot.png && xclip -selection clip -t image/png ~/screenshots/screenshot.png
+bindsym $mod+Shift+p exec DATE_=$(date '+%Y-%m-%d-%H-%M-%S') && maim --format png --select > ~/screenshots/$DATE_.png && xclip -selection clip -t image/png ~/screenshots/$DATE_.png
 
-# resize window (you can also use the mouse for that)
+# resize window (you can also use the mouse for that)a
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -214,6 +222,8 @@ bar {
 		statusline #eff0f1
 	}
 }
+
+for_window [class="zoom"] floating enable
 
 focus_follows_mouse no
 
