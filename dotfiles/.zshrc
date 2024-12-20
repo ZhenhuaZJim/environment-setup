@@ -109,33 +109,21 @@ source $ZSH/oh-my-zsh.sh
 #
 
 ### CUDA specific configuration
-export PATH=$PATH:/usr/local/cuda-10.3/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.3/lib64
-export PATH=$PATH:/usr/local/cuda-11.3/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.3/lib64
-export PATH=$PATH:/usr/local/cuda-11.1/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.1/lib64
+export CUDA_HOME=/usr/local/cuda-11.8/
+export PATH=/usr/local/cuda-10.3/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-10.3/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-11.3/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-11.1/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-11.8/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 alias vim="nvim"
 alias vi="nvim"
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jim/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jim/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jim/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jim/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 source ~/credentials
 
