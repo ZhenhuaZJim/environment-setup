@@ -7,3 +7,6 @@ cp -r ~/.tmux.conf ./dotfiles/
 
 echo "backing up zshrc config"
 cp -r ~/.zshrc ./dotfiles/
+
+echo "backing up nvim config"
+cp -r ~/.config/nvim/ ./dotfiles/.config/
