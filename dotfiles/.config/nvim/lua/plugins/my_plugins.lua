@@ -29,7 +29,9 @@ return {
       },
     },
   },
-  require("telescope").setup({
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
     defaults = {
       -- prompt_prefix = " ",
       -- selection_caret = " ",
@@ -43,5 +45,5 @@ return {
       --   height = 0.95,
       -- },
     },
-  }),
+  },
 }
